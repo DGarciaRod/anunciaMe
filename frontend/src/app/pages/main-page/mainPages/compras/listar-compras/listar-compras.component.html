@@ -1,0 +1,35 @@
+<div class="w-full">
+  <div class="w-full bg-white rounded overflow-hidden border-black">
+    <div class="w-full flex font-bold bg-gray-700 text-white pt-1 pl-1 pr-1">
+      <div class="w-1/4 tableField">
+        <a>Anuncio</a>
+      </div>
+      <div class="w-1/4 tableField">
+        <a>Precio</a>
+      </div>
+      <div class="w-1/4 tableField">
+        <a>Cantidad</a>
+      </div>
+      <div class="w-1/4 tableField" *ngIf="this.tipo!=filtrosBusquedaCompra.vendedor">
+        <a>Vendedor</a>
+      </div>
+      <div class="w-1/4 tableField" *ngIf="this.tipo==filtrosBusquedaCompra.vendedor">
+        <a>Comprador</a>
+      </div>
+      <div class="w-1/4 tableField">
+        <a>Fecha</a>
+      </div>
+    </div>
+    <app-listar-compras-row [tipo]="tipo" *ngFor="let x of compras; index as i" [compra]="x"/>
+  </div>
+  <div class="w-full">
+    <app-prev-and-next-page
+      [showPrevButtonCond]="searchParams.pageNum>0"
+      [showNextButtonCond]="existMore"
+      [goToPrevPage]="prevPage"
+      [goToNextPage]="nextPage"
+      [pageNum]="searchParams.pageNum"
+    />
+  </div>
+</div>
+

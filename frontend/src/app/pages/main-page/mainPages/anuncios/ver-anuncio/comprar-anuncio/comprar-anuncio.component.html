@@ -1,0 +1,16 @@
+<div class="w-48">
+
+
+  <app-simple-form [formGroup]="comprarForm">
+    <div class="h-14 w-full flex flex-col gap-1 justify-center items-start">
+      <a class="font-bold text-colorTextTitle">Comprar</a>
+      <a class="font-bold text-sm text-colorTextInputTitle">Cantidad:</a>
+      <div class="flex gap-2 w-full items-center h-full">
+        <input formControlName="cantidad" class="w-16 bg-colorInput text-colorTextInput" id="quantity" type="number" s/>
+        <app-input-button [onClick]="Comprar" label="Comprar" formStatus="{{comprarForm.status}}"/>
+      </div>
+    </div>
+  </app-simple-form>
+</div>
+
+

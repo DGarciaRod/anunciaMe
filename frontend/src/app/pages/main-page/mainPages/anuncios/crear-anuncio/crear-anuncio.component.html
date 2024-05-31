@@ -1,0 +1,35 @@
+<div class="w-full sm:h-auto h-full">
+  <div class="w-full  sm:ml-auto sm:mr-auto h-full">
+    <app-simple-form [formGroup]="crearAnuncioForm">
+      <app-panel-title>
+        Crear anuncio
+      </app-panel-title>
+      <div class="flex h-full w-full sm:justify-between sm:flex-row flex-col sm:p-0 p-4 sm:pt-6  gap-4 ">
+        <div class="sm:pr-8 w-full flex flex-col gap-1 ">
+          <app-input-field key="nombre" label="Nombre:" [parent]="crearAnuncioForm" [fieldError]="globalError"/>
+          <app-input-textarea key="descripcion" label="Descripcion:" [parent]="crearAnuncioForm"
+                              [fieldError]="globalError"/>
+        </div>
+        <div class="w-full sm:justify-end flex flex-row sm:gap-8 gap-6">
+          <div class="w-72 flex flex-col gap-4 sm:pr-8">
+            <div class="w-full">
+              <app-input-select [label]="'Categoría:'" placeholder="Selecciona una categoría"
+                                [optionList]="anuncioService.categorias" key="categoria" [parent]="crearAnuncioForm"/>
+            </div>
+            <app-input-precio key="precio" label="Precio:" [parent]="crearAnuncioForm" [fieldError]="globalError"/>
+
+          </div>
+
+        </div>
+      </div>
+      <div class="w-full bg-colorPagePanelResp  sm:bg-colorPagePanel p-4 pt-0 sm:sm:pb-6 sm:p-0 mt-2">
+        <app-image-upload *ngIf="crearAnuncioForm" [setImags]="setImages" [formGroup]="crearAnuncioForm"/>
+        <div class="flex flex-row-reverse pr-2 pt-2">
+          <app-input-button label="Crear anuncio" [onClick]="crearAnuncio" formStatus="{{crearAnuncioForm.status}}"/>
+        </div>
+      </div>
+
+    </app-simple-form>
+  </div>
+
+</div>

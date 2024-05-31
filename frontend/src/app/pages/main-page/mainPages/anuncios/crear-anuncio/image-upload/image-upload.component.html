@@ -1,0 +1,32 @@
+<form class="flex flex-col gap-2 w-full justify-center items-center h-full">
+  <div id="uploadButton">
+    <input class="hidden" type="file" id="myFile" name="filename" multiple (change)="onFileSelected($event)" #fileUpload>
+    <div class="file-upload flex flex-row w-full text-colorUploadImgText">
+      <button class="sm:w-72 w-full upload-btn flex flex-row bg-colorUploadImgBg rounded-xl p-2"
+              (click)="uploadImage(fileUpload.click())">
+        <fa-icon class="text-colorUploadImgText" size="2x" [icon]="faUpload"></fa-icon>
+        <a class="font-bold sm:w-48 w-full justify-start flex pl-2">Haz click aquí para subir imágenes</a>
+      </button>
+    </div>
+  </div>
+
+
+
+  <div class="bg-gray-200 rounded p-2 flex flex-col gap-2 w-full sm:w-72" *ngIf="uploadedImages.length>0">
+    <div class="w-full flex border-solid border-2 border-gray-600 rounded"  *ngFor="let imagen of uploadedImages; index as index;">
+      <div class="flex w-full">
+        <div class="w-full flex justify-center items-center">
+          <div class="flex flex-row justify-center items-center">
+            <img class="max-w-full max-h-40"  src="{{imagen}}"/>
+          </div>
+        </div>
+      </div>
+      <div (click)="deleteImage(index)" class="w-8 flex justify-center items-center cursor-pointer bg-red-400">
+        <div>
+          <fa-icon size="lg" class="iconColorWhite" [icon]="faTrash"></fa-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</form>

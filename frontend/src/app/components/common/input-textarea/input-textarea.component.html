@@ -1,0 +1,7 @@
+<div [formGroup]="parent" class="flex flex-col gap-1 w-full text-colorTextInputTitle">
+  <label class="text-xl font-bold" for="{{key}}">{{label}}</label>
+  <textarea id="{{key}}" [ngClass]="{
+         'formTextAreaWrong': fieldError,
+         'formTextAreaOk': !fieldError}"
+            formControlName="{{key}}"></textarea>
+</div>

@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer base {
+
+}
+
+.authPageBackground{
+  @apply bg-gradient-to-tl from-colorAuthPageBgGradient1 via-colorAuthPageBgGradient2 to-colorAuthPageBgGradient3
+
+}
+
+.mainAppBackground{
+  @apply bg-gradient-to-b from-colorMainPageBgGradient1 via-colorMainPageBgGradient2 to-colorMainPageBgGradient3
+
+}
+
+.formButtonOk{
+   @apply font-bold text-colorTextButtonOk shadow-sm shadow-black w-fit bg-colorButtonOk pl-2 pr-2 pt-1 pb-1 rounded;
+ }
+
+.formButtonWrong{
+  @apply font-bold  text-colorTextButtonWrong shadow-sm shadow-black w-fit bg-colorButtonWrong pl-2 pr-2 pt-1 pb-1 rounded cursor-not-allowed ;
+}
+
+.formInputOk{
+  @apply pl-2 text-colorTextInput bg-colorInput w-full m-auto  shadow-sm shadow-black  rounded-xl;
+}
+
+.formInputWrong{
+  @apply pl-2 text-colorTextInput bg-colorInput text-lg w-full m-auto rounded border-solid border-red-500 border-[2px] outline-none animate-pulse;
+}
+
+.formTextAreaOk{
+  @apply text-lg w-full m-auto text-colorTextInput bg-colorInput shadow-sm shadow-black  rounded-xl  resize-none;
+}
+
+.formTextAreaWrong{
+  @apply text-lg w-full text-colorTextInput bg-colorInput shadow-sm shadow-black  rounded-xl resize-none m-auto  border-solid border-red-500 border-[2px] outline-none animate-pulse;
+}
+
+.formInputPrecioOk{
+  @apply  shadow shadow-black bg-colorInput text-colorTextInput  text-lg w-12 m-auto rounded;
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield !important;
+}
+
+.formInputPrecioWrong{
+  -webkit-appearance: none;
+  margin: 0;
+  -moz-appearance: textfield !important;
+  @apply  shadow shadow-black bg-colorInput text-colorTextInput text-lg w-12 m-auto rounded border-solid border-red-500 border-[2px] outline-none animate-pulse;
+}
+
+.iconRed{
+  color: #7c0808;
+  @apply animate-pulse
+}
+
+.iconColorWhite{
+  color: #ffffff;
+}
+
+
+
+.tableField{
+  @apply overflow-hidden whitespace-nowrap overflow-ellipsis pl-1 border-b-2 border-black;
+}
+
+
+
+.ellipsis{
+  @apply overflow-hidden whitespace-nowrap overflow-ellipsis
+}
+
+.ellipsisLines{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 5;
+  white-space: nowrap;
+}
+
+.ellipsis-3{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

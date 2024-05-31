@@ -1,0 +1,45 @@
+<div class="flex flex-col gap-2">
+  <app-panel-title>
+    Información de la compra:
+  </app-panel-title>
+  <app-label-and-value [separate]="true">
+    <a slot="label" (click)="irAlAnuncio()" class="cursor-pointer">Anuncio: <a class="text-gray-600">(click para ir)</a></a>
+    <div slot="value" class="flex gap-1 cursor-pointer" (click)="irAlAnuncio()">
+      {{anuncio.nombre}}
+    </div>
+  </app-label-and-value>
+  <app-label-and-value>
+    <a  slot="label">Fecha:</a>
+    <a  slot="value">{{getFormatedDate()}}</a>
+  </app-label-and-value>
+  <app-label-and-value *ngIf="anuncio.vendedorId!=loginService.id">
+    <a  slot="label">Vendido por:</a>
+    <a  slot="value">{{anuncio.vendedor}}</a>
+  </app-label-and-value>
+  <app-label-and-value *ngIf="anuncio.vendedorId!=loginService.id">
+    <a  slot="label">Comprado por:</a>
+    <a  slot="value">{{comprador.nombre}}</a>
+  </app-label-and-value>
+  <div class="w-full sm:flex-row flex-col flex gap-2 sm:gap-4">
+    <app-label-and-value >
+      <a  slot="label">Cantidad:</a>
+      <a  slot="value">{{compra.cantidad}}</a>
+    </app-label-and-value>
+    <app-label-and-value >
+      <a  slot="label">Precio por unidad:</a>
+      <a  slot="value">{{compra.precioPagadoPorArticulo}}€</a>
+    </app-label-and-value>
+    <app-label-and-value >
+      <a  slot="label">Precio total:</a>
+      <a  slot="value">{{compra.precioPagadoPorArticulo.valueOf()*compra.cantidad.valueOf()}}€</a>
+    </app-label-and-value>
+  </div>
+
+  <app-review-form (reviewEmitter)="onReview($event)" *ngIf="!isReviewed()" [compra]="compra.id"/>
+  <app-review
+    *ngIf="isReviewed()"
+    [review]="this.review?this.review:this.getNewReview()"
+  />
+  <a class="text-sm text-gray-600">Código de compra: {{compra.id}}</a>
+</div>
+

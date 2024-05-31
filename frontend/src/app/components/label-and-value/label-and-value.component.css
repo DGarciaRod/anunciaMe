@@ -1,0 +1,7 @@
+.labelAndValueSep{
+  @apply  flex flex-col
+}
+
+.labelAndValueTog{
+  @apply flex flex-row
+}

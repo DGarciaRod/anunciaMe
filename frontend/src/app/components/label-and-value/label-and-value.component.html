@@ -1,0 +1,7 @@
+<div [ngClass]="{
+  'labelAndValueSep ellipsis-3': separate,
+  'labelAndValueTog ellipsis-3': !separate,
+}" >
+  <div class="w-fit font-bold text-lg text-colorTextLabel"><ng-content select="[slot=label]"></ng-content></div>
+  <div class="pl-2 ellipsis-3 text-lg w-auto text-colorTextValue"><ng-content select="[slot=value]"></ng-content></div>
+</div>

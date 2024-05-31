@@ -1,0 +1,8 @@
+<div (click)="goToCompra()" class="w-full flex h-8 cursor-pointer hover:bg-gray-600 hover:text-white">
+  <div class="w-1/4 tableField">{{anuncio.nombre}}</div>
+  <div class="w-1/4 tableField">{{compra.cantidad}}</div>
+  <div class="w-1/4 tableField">{{compra.precioPagadoPorArticulo.valueOf()*compra.cantidad.valueOf()}}</div>
+  <div class="w-1/4 tableField" *ngIf="this.tipo!=filtrosBusquedaCompra.vendedor">{{anuncio.vendedor}}</div>
+  <div class="w-1/4 tableField" *ngIf="this.tipo==filtrosBusquedaCompra.vendedor">{{comprador.nombre}}</div>
+  <div class="w-1/4 tableField">{{compra.fecha}}</div>
+</div>

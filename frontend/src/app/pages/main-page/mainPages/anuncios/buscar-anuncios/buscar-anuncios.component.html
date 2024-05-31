@@ -1,0 +1,10 @@
+<div class="w-full flex flex-col gap-2 sm:p-2">
+  <app-panel-title>
+    Buscador de anuncios
+  </app-panel-title>
+  <app-buscador/>
+  <app-lista-resultados *ngIf="anunciosService.busquedaActual.length>0"/>
+  <div *ngIf="anunciosService.busquedaActual.length==0" class="flex ellipsis pl-2 font-bold text-lg">
+    <a>No hay resultados que coincidan con la búsqueda.</a>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div [formGroup]="parent" class="flex flex-row gap-1">
+  <ng-container *ngIf="!!label">
+    <label class="text-xl text-colorTextInputTitle font-bold" for="{{key}}"><a class="">{{label}}</a></label>
+  </ng-container>
+  <div class="w-full flex gap-1 pl-2">
+    <input id="{{key}}" type="number"
+           [ngClass]="{
+         'formInputPrecioWrong': fieldError,
+         'formInputPrecioOk': !fieldError}"
+           formControlName="{{key}}"/>
+    <a class="font-bold text-colorTextInput">€</a>
+  </div>
+
+</div>

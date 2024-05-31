@@ -1,0 +1,10 @@
+<div (mouseenter)="onMouseOn(selecting, index)" (mouseleave)="onMouseOut(selecting, index)" (click)="setValue(index)">
+  <fa-icon
+    [ngClass]="{
+    'iconBgNotSelecting':selectedIndex<index&&!selecting,
+    'iconBgSelecting ':selectingIndex<index&&selecting,
+    'iconGold':selectedIndex>=index&&!selecting,
+    'iconSelecting':selectingIndex>=index&&selecting,
+    }"
+    [icon]="faStar"></fa-icon>
+</div>

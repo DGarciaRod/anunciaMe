@@ -1,0 +1,16 @@
+<div class="w-full bg-colorReviewBg flex flex-col items-center rounded-2xl p-1">
+  <div class="w-full flex flex-col justify-start items-start">
+    <div class="flex w-full gap-2">
+      <div class="w-28">
+        <app-review-stars [initialValue]="review.calificacion" [disabled]="true"/>
+      </div>
+
+      <div class="flex gap-1 w-full ellipsis pr-2">
+        <a class="w-full ellipsis font-bold text-colorReviewUsr">{{usuario.nombre}}</a>
+      </div>
+    </div>
+    <div class="w-full ellipsis-3 pl-2 pr-2 text-colorReviewMsg">
+      <a>{{review.mensaje}}</a>
+    </div>
+  </div>
+</div>

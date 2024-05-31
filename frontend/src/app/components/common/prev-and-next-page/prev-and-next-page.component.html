@@ -1,0 +1,14 @@
+<div class="flex gap-1 w-full justify-center items-center sm:bg-transparent bg-colorPagePanelResp">
+  <ng-container *ngIf="showPrevButtonCond">
+
+    <div class="cursor-pointer" (click)="goToPrevPage()">
+      <fa-icon class="text-colorPaginationButtons" size="lg" [icon]="faArrowLeft"></fa-icon>
+    </div>
+  </ng-container>
+  <a class="text-lg font-bold text-colorPaginationPage">{{pageNum}}</a>
+  <ng-container *ngIf="showNextButtonCond">
+    <div class="cursor-pointer" (click)="goToNextPage()" >
+      <fa-icon class="text-colorPaginationButtons" size="lg" [icon]="faArrowRight"></fa-icon>
+    </div>
+  </ng-container>
+</div>

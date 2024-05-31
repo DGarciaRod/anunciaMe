@@ -1,0 +1,10 @@
+<div [formGroup]="parent" class="flex flex-col gap-1">
+  <ng-container *ngIf="!!label">
+    <label class="text-xl font-bold text-colorTextInputTitle" for="{{key}}">{{label}}</label>
+  </ng-container>
+  <input id="{{key}}" type="{{type}}"
+         [ngClass]="{
+         'formInputWrong': fieldError,
+         'formInputOk': !fieldError}"
+         formControlName="{{key}}"/>
+</div>

@@ -1,0 +1,10 @@
+<div class="flex flex-col gap-1" [formGroup]="parent" >
+  <a class="text-xl font-bold text-colorTextInputTitle">{{label}} </a>
+  <select id="{{key}}" formControlName="{{key}}"
+          class="w-full p-1 rounded text-lg bg-colorInput text-colorTextInput shadow shadow-black" name="cars" id="cars">
+    <option *ngIf="placeholder" value="">{{placeholder}}</option>
+    <option
+      *ngFor="let option of optionList; index as i; first as isFirst" value="{{option.value}}">{{option.name}}</option>
+  </select>
+</div>
+

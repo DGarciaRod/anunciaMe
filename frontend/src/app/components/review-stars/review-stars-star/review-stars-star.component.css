@@ -1,0 +1,21 @@
+.iconPulse{
+  @apply animate-pulse
+}
+
+.iconGold{
+  color: #ffe062;
+}
+
+
+.iconSelecting{
+  color: #ffe062;
+  @apply animate-pulse
+}
+
+.iconBgNotSelecting{
+  color: #000000;
+}
+
+.iconBgSelecting{
+  color: #000000;
+}

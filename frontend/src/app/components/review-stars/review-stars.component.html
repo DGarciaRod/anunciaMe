@@ -1,0 +1,12 @@
+<div class="flex gap-1 w-fit inline" (mouseenter)="setSelecting(true)" (mouseleave)="setSelecting(false)">
+  <app-review-stars-star
+    *ngFor="let _ of [].constructor(numberOfStars); index as starIndex"
+    (valueEmitter)="onMouseClick($event)"
+    (selectionValueEmitter)="onMouseOn($event)"
+    [index]=starIndex+1
+    [selectingIndex]="selectingValue"
+    [selectedIndex]="value"
+    [selecting]="selecting"
+  />
+
+</div>

@@ -1,0 +1,13 @@
+<div class="flex flex-col w-full sm:gap-1 h-full">
+  <ng-container *ngFor="let resultado of anuncioService.busquedaActual;">
+    <app-resultado [resultado]="resultado" />
+  </ng-container>
+
+  <app-prev-and-next-page
+    [showPrevButtonCond]="anuncioService.paramterosBusqueda.pageNum?anuncioService.paramterosBusqueda.pageNum.valueOf()>0:false"
+    [showNextButtonCond]="anuncioService.hayMas"
+    [goToPrevPage]="anuncioService.anteriorPagina"
+    [goToNextPage]="anuncioService.siguientePagina"
+    [pageNum]="anuncioService.paramterosBusqueda.pageNum?anuncioService.paramterosBusqueda.pageNum:0"
+  />
+</div>

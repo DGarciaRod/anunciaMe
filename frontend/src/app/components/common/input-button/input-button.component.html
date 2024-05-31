@@ -1,0 +1,3 @@
+<button [ngClass]="{'formButtonOk': formStatus=='VALID', 'formButtonWrong': !(formStatus=='VALID')}"
+        (click)="onClick()">{{label}}</button>
+

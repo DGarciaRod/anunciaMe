@@ -1,0 +1,20 @@
+<app-floating-panel>
+  <app-simple-form [formGroup]="registerForm">
+    <div class="flex flex-col gap-1">
+      <app-input-field key="nombre" label="Nombre real:" [parent]="registerForm"  [fieldError]="globalError"/>
+      <app-input-field key="username" label="Nombre de usuario:" [parent]="registerForm"  [fieldError]="globalError||fieldErrors.username"/>
+      <app-input-field key="pass" type="password" label="Contraseña:" [parent]="registerForm"  [fieldError]="globalError"/>
+    </div>
+    <div class="flex pl-4 gap-1" *ngIf="valErrors.usrAlreadyExists">
+      <fa-icon class="iconRed" [icon]="faCircleExclamation" ></fa-icon>
+      <a class="text-red-900 animate-pulse" >El nombre de usuario ya existe</a>
+    </div>
+    <div class="flex pl-4 gap-1" *ngIf="globalError">
+      <fa-icon class="iconRed" [icon]="faCircleExclamation" ></fa-icon>
+      <a class="text-red-900 animate-pulse" >Ha ocurrido un error al llevar a cabo el registro!</a>
+    </div>
+    <div class="flex flex-row-reverse pr-2">
+      <app-input-button label="Registrarme" [onClick]="register" formStatus="{{registerForm.status}}" />
+    </div>
+  </app-simple-form>
+</app-floating-panel>

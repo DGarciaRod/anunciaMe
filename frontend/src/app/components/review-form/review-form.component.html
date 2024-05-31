@@ -1,0 +1,20 @@
+<div class="w-full bg-colorReviewFormBg flex flex-col items-center sm:rounded-2xl p-4 ">
+  <app-simple-form class="w-full" [formGroup]="reviewForm">
+    <div class="w-full flex flex-col justify-center items-start gap-2">
+      <a class="font-bold text-colorTextInputTitle">Valora tu experiencia:</a>
+      <app-review-stars
+        [initialValue]="3"
+        [onChange]="setPuntuacion"
+        [numberOfStars]="5"
+      />
+      <div class="w-full">
+        <app-input-textarea key="descripcion" [parent]="reviewForm"/>
+      </div>
+      <div class="flex flex-row w-full justify-end pt-1">
+        <app-input-button [formGroup]="reviewForm" label="Enviar" [onClick]="hacerReview" formStatus="{{reviewForm.status}}" />
+      </div>
+    </div>
+
+
+  </app-simple-form>
+</div>

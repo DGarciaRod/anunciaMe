@@ -1,0 +1,17 @@
+<app-floating-panel>
+  <img src="/assets/img/logoMiniSq.png" alt="image" width="300px">
+  <app-simple-form [formGroup]="loginForm">
+    <div class="flex flex-col gap-1">
+      <app-input-field key="username" label="Nombre de usuario:" [parent]="loginForm" [fieldError]="errors"/>
+      <app-input-field key="pass" type="password" label="Contraseña:" [parent]="loginForm" [fieldError]="errors"/>
+    </div>
+    <div class="flex pl-4 gap-1" *ngIf="errors">
+      <fa-icon class="iconRed" [icon]="faCircleExclamation"></fa-icon>
+      <a class="text-red-900 animate-pulse">Error al iniciar sesión</a>
+    </div>
+    <div class="flex flex-row-reverse pr-2">
+      <app-input-button label="Entrar" [onClick]="login" formStatus="{{loginForm.status}}"/>
+    </div>
+  </app-simple-form>
+</app-floating-panel>
+

@@ -1,0 +1,28 @@
+<form class="flex flex-col gap-2 w-full" formGroup="buscarAnunciosForm">
+  <div class="flex flex-col ">
+    <div class="flex gap-1 w-full items-center">
+      <div class="w-96 pl-2 sm:pl-0">
+        <app-input-field key="texto" [parent]="buscarAnunciosForm"/>
+      </div>
+      <app-input-button label="Buscar" [onClick]="buscar" formStatus="{{buscarAnunciosForm.status}}"/>
+    </div>
+    <div class="flex flex-col w-full">
+      <div class="w-full flex sm:flex-row flex-col gap-2 pl-2 sm:pl-0">
+        <div class="w-72">
+          <app-input-select [label]="'Categoría:'" placeholder="Todas las categorías"
+                            [optionList]="anuncioService.categorias" key="categoria" [parent]="buscarAnunciosForm"/>
+        </div>
+        <div class="w-72">
+          <app-input-select [label]="'Rango de precios:'" placeholder="Todos los precios" [optionList]="RangoPrecios"
+                            key="precio" [parent]="buscarAnunciosForm"/>
+        </div>
+      </div>
+      <div class="flex w-full gap-2  pl-2 sm:pl-0">
+        <a class="text-xl flex items-center font-bold text-colorTextInputTitle">Ordenar por: </a>
+        <app-input-select [optionList]="camposParaOrdenar" key="orderBy" [parent]="buscarAnunciosForm"/>
+        <app-input-select [optionList]="ordenOrder" key="sortOrder" [parent]="buscarAnunciosForm"/>
+      </div>
+    </div>
+  </div>
+
+</form>

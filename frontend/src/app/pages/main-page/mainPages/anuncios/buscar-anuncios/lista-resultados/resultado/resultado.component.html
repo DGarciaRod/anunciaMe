@@ -1,0 +1,36 @@
+<div (click)="irAAnuncio()"
+  class="shadow-black shadow flex sm:p-1 flex-col
+  bg-colorResultadoBuscarAnunciosRespBg sm:bg-colorResultadoBuscarAnunciosBg sm:rounded-xl
+   hover:cursor-pointer hover:bg-colorResultadoBuscarAnunciosBgSel group sm:border-b-0 border-t-2
+   sm:border-t-0 border-b-2 b-t-2 border-black">
+  <div id="nombre" class="flex flex-row font-bold ml-2 mr-2 gap-2">
+    <a class="font-bold  group-hover:text-colorResultadoBuscarAnunciosPriceSel
+    text-colorResultadoBuscarAnunciosPriceNotSel">{{resultado.precio}}€</a>
+    <a class="w-full overflow-hidden whitespace-nowrap overflow-ellipsis">{{resultado.nombre}}</a>
+  </div>
+  <div id="bottom" class="flex flex-row gap-4">
+    <div id="bottom-left" class="flex flex-col w-3/4">
+      <div id="descripcion" class="h-20 w-full flex p-1">
+        <p class="shadow-black shadow-sm pl-2 pr-2 w-full ellipsis-3 sm:bg-colorResultadoBuscarAnunciosDesBg
+         rounded bg-colorResultadoBuscarAnunciosRespDesBg
+        group-hover:bg-colorResultadoBuscarAnunciosDesBgSel">
+          {{resultado.descripcion}}<a *ngIf="resultado.descripcion.length>111">...</a>
+        </p>
+      </div>
+    </div>
+    <div id="bottom-right" class="rounded-xl h-24 w-1/4 overflow-hidden bg-white border-2
+    border-black flex justify-center items-center">
+          <div class="w-[100%] h-36 overflow-hidden flex items-center">
+            <img class="min-h-36 min-w-36" src="{{getRutaImg()}}">
+          </div>
+    </div>
+  </div>
+  <div id="catprecioYvendedor" class="flex flex-row w-[95%] gap-2 ml-2">
+    <a class="w-2/5 overflow-hidden whitespace-nowrap overflow-ellipsis
+    text-colorResultadoBuscarAnunciosValue">
+      <a class="text-colorResultadoBuscarAnunciosTag">En: </a>
+      {{resultado.categoria}}
+    </a>
+    <a class="w-3/5 overflow-hidden whitespace-nowrap overflow-ellipsis text-colorResultadoBuscarAnunciosValue"><a class="text-colorResultadoBuscarAnunciosTag">Vendido por: </a>{{resultado.vendedor}}</a>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="w-full flex flex-col gap-4 sm:p-4 p-2">
+  <div id="info" class="w-full flex flex-col gap-2">
+    <app-panel-title>
+      Tu perfil:
+    </app-panel-title>
+    <app-label-and-value  [separate]="true">
+      <a slot="label">Nombre de usuario:</a>
+      <a slot="value">{{loginService.usuario}}</a>
+    </app-label-and-value>
+    <app-label-and-value [separate]="true">
+      <a slot="label">Nombre real:</a>
+      <a slot="value">{{loginService.nombre}}</a>
+    </app-label-and-value>
+
+  </div>
+  <div id="compras" class="w-full flex flex-col gap-2">
+      <app-label-and-value>
+        <a slot="label">Compras:</a>
+        <a slot="value">{{userStats.compras}}</a>
+      </app-label-and-value>
+
+
+
+
+    <div *ngIf="userStats.compras.valueOf()>0" class="w-full flex flex-col gap-2">
+      <div (click)="toggleCompras()" class="w-full flex gap-1 items-center cursor-pointer">
+        <a *ngIf="!showCompras" class="text-lg font-bold text-colorShowHideBuys">Mostrar compras</a>
+        <a *ngIf="showCompras" class="text-lg font-bold text-colorShowHideBuys">Ocultar compras</a>
+        <fa-icon *ngIf="!showCompras" [icon]="faDownLong" class="text-colorShowHideBuys"></fa-icon>
+        <fa-icon *ngIf="showCompras" [icon]="faUpLong" class="text-colorShowHideBuys"></fa-icon>
+      </div>
+      <app-listar-compras *ngIf="showCompras"  [tipo]="filtrosBusquedaCompra.comprador"/>
+    </div>
+  </div>
+  <div id="ventas" class="w-full flex flex-col gap-2">
+    <div class="flex gap-2 w-full ellipsis">
+      <app-label-and-value>
+        <a slot="label">Ventas:</a>
+        <a class="flex gap-2 ellipsis" slot="value">{{userStats.ventas}} <app-review-stars [initialValue]="userStats.calificacionMedia" [disabled]="true"/></a>
+      </app-label-and-value>
+
+    </div>
+    <div *ngIf="userStats.ventas.valueOf()>0" class="w-full flex flex-col gap-2">
+      <div (click)="toggleVentas()" class="w-full flex gap-1 items-center cursor-pointer">
+        <a *ngIf="!showVentas" class="text-lg font-bold text-colorShowHideBuys">Mostrar ventas</a>
+        <a *ngIf="showVentas" class="text-lg font-bold text-colorShowHideBuys">Ocultar ventas</a>
+        <fa-icon *ngIf="!showVentas" [icon]="faDownLong" class="colorShowHideBuys"></fa-icon>
+        <fa-icon *ngIf="showVentas" [icon]="faUpLong" class="colorShowHideBuys"></fa-icon>
+      </div>
+      <app-listar-compras *ngIf="showVentas"  [tipo]="filtrosBusquedaCompra.vendedor"/>
+    </div>
+  </div>
+  <div class="flex justify-end pr-2">
+    <button class="formButtonOk" (click)="logout()">Cerrar sesión</button>
+  </div>
+</div>
